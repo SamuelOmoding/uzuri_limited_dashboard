@@ -7,7 +7,7 @@ import emailjs from "emailjs-com";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
-emailjs.init("_i-rvf-Vb-3NAy7sG");
+emailjs.init("_CvGTJ5aUSM1dGvJq");
 
 const Invoice = ({ ThemeStyles }) => {
   const navigate = useNavigate();
@@ -290,10 +290,10 @@ const Invoice = ({ ThemeStyles }) => {
 
     emailjs
       .send(
-        "service_ubxhk3m",
-        "template_s71zm2p",
+        "service_dwdxhah",
+        "template_cxmjl9j",
         templateParams,
-        "_i-rvf-Vb-3NAy7sG"
+        "_CvGTJ5aUSM1dGvJq"
       )
       .then((response) => {
         console.log("Email sent successfully:", response);
