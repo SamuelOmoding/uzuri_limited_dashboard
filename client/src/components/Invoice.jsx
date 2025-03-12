@@ -154,6 +154,7 @@ const Invoice = ({ ThemeStyles }) => {
     doc.text("Invoice", 20, 20);
     doc.text("From: Uzuri Limited Accounts Department", 20, 30);
     doc.text(`To: (${formik.values.client_email})`, 20, 40);
+    doc.text(`Hello: ${formik.values.client_name})`, 20, 50);
     doc.text(`Invoice #: ${formik.values.invoice_number}`, 20, 50);
     doc.text(`Date: ${formik.values.date}`, 20, 60);
     doc.text(`Project Status: ${formik.values.project_status}`, 20, 70);
@@ -251,6 +252,7 @@ const Invoice = ({ ThemeStyles }) => {
 
     const templateParams = {
       to_email: formik.values.client_email,
+      hello: formik.values.client_name,
       invoice_number: formik.values.invoice_number,
       invoice_date: formik.values.date,
       project_status: formik.values.project_status,
