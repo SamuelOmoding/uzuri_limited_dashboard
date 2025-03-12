@@ -23,7 +23,7 @@ function Login({ switchForm, ThemeStyles }) {
     }),
     onSubmit: (values, { setSubmitting }) => {
       console.log(values);
-      fetch("http://127.0.0.1:8080/api/auth/admin_login", {
+      fetch("https://uzuri-limited-backend-veim.onrender.com/api/auth/admin_login", {
         method: "POST",
                 headers: {
           "Content-Type": "application/json",
@@ -159,7 +159,7 @@ function Register({ switchForm, ThemeStyles }) {
     }),
     onSubmit: (values, { setSubmitting }) => {
       console.log(values);
-      fetch("http://127.0.0.1:8080/api/auth/admin_signup", {
+      fetch("https://uzuri-limited-backend-veim.onrender.com/api/auth/admin_signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

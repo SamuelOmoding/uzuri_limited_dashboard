@@ -107,7 +107,7 @@ const Invoice = ({ ThemeStyles }) => {
         total_cost_after_tax: values.total_cost_after_tax,
       };
 
-      fetch("http://127.0.0.1:8080/api/admin/routes/invoices", {
+      fetch("https://uzuri-limited-backend-veim.onrender.com/api/admin/routes/invoices", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -323,7 +323,7 @@ const Invoice = ({ ThemeStyles }) => {
   };
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8080/api/admin/routes/clients")
+    fetch("https://uzuri-limited-backend-veim.onrender.com/api/admin/routes/clients")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -341,7 +341,7 @@ const Invoice = ({ ThemeStyles }) => {
   }, []);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8080/api/admin/routes/fees")
+    fetch("https://uzuri-limited-backend-veim.onrender.com/api/admin/routes/fees")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -359,28 +359,28 @@ const Invoice = ({ ThemeStyles }) => {
   }, []);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8080/api/admin/routes/drillingservices")
+    fetch("https://uzuri-limited-backend-veim.onrender.com/api/admin/routes/drillingservices")
       .then((response) => response.json())
       .then((data) => setDrillingServices(data))
       .catch((error) => setError(error.toString()));
   }, []);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8080/api/admin/routes/pumpservices")
+    fetch("https://uzuri-limited-backend-veim.onrender.com/api/admin/routes/pumpservices")
       .then((response) => response.json())
       .then((data) => setPumpTypes(data))
       .catch((error) => setError(error.toString()));
   }, []);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8080/api/admin/routes/tank")
+    fetch("https://uzuri-limited-backend-veim.onrender.com/api/admin/routes/tank")
       .then((response) => response.json())
       .then((data) => setPipeTypes(data))
       .catch((error) => setError(error.toString()));
   }, []);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8080/api/admin/routes/categories")
+    fetch("https://uzuri-limited-backend-veim.onrender.com/api/admin/routes/categories")
       .then((response) => response.json())
       .then((data) => setCategories(data))
       .catch((error) => setError(error.toString()));
