@@ -1,12 +1,30 @@
 import { useState } from "react";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import * as Yup from "yup"; // Ensure yup is installed
 import { useUser } from "../UserContext";
 import { useNavigate } from "react-router-dom";
 
+function Form() {
+  const [isLoginForm, setIsLoginForm] = useState(true);
+
+  const switchForm = () => {
+    setIsLoginForm((prev) => !prev);
+  };
+
+  return (
+    <div>
+      {isLoginForm ? (
+        <Login switchForm={switchForm} />
+      ) : (
+        <Register switchForm={switchForm} />
+      )}
+    </div>
+  );
+}
+
 function Login({ switchForm, ThemeStyles }) {
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const { setUser } = useUser();
   const navigate = useNavigate();
 
@@ -22,7 +40,7 @@ function Login({ switchForm, ThemeStyles }) {
         .required("Required"),
     }),
     onSubmit: (values, { setSubmitting }) => {
-      setLoading(true); 
+      setLoading(true);
       fetch(
         "https://uzuri-limited-backend-veim.onrender.com/api/auth/admin_login",
         {
@@ -42,7 +60,7 @@ function Login({ switchForm, ThemeStyles }) {
           console.error("Error:", error);
         })
         .finally(() => {
-          setLoading(false); 
+          setLoading(false);
           setSubmitting(false);
         });
     },
@@ -116,10 +134,10 @@ function Login({ switchForm, ThemeStyles }) {
           <div className="mt-4 flex items-center justify-between">
             <button
               type="submit"
-              disabled={loading} 
+              disabled={loading}
               className="rounded-md bg-blue-600 px-4 py-1 text-lg font-semibold text-white shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              {loading ? "Loading..." : "Login"} 
+              {loading ? "Loading..." : "Login"}
             </button>
             <p
               className="text-blue-600 cursor-pointer hover:underline"
@@ -136,7 +154,7 @@ function Login({ switchForm, ThemeStyles }) {
 
 function Register({ switchForm, ThemeStyles }) {
   const [showPassword, setShowPassword] = useState(false);
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -156,7 +174,7 @@ function Register({ switchForm, ThemeStyles }) {
         .required("Required"),
     }),
     onSubmit: (values, { setSubmitting }) => {
-      setLoading(true); // Start loading
+      setLoading(true);
       fetch(
         "https://uzuri-limited-backend-veim.onrender.com/api/auth/admin_signup",
         {
@@ -171,13 +189,13 @@ function Register({ switchForm, ThemeStyles }) {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          switchForm(); // Switch to login form
+          switchForm();
         })
         .catch((error) => {
           console.error("Error:", error);
         })
         .finally(() => {
-          setLoading(false); // Stop loading
+          setLoading(false);
           setSubmitting(false);
         });
     },
@@ -243,10 +261,10 @@ function Register({ switchForm, ThemeStyles }) {
           <div className="mt-4 flex items-center justify-between">
             <button
               type="submit"
-              disabled={loading} // Disable button while loading
+              disabled={loading}
               className="rounded-md bg-blue-600 px-4 py-1 text-lg font-semibold text-white shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              {loading ? "Loading..." : "Register"} {/* Show loading text */}
+              {loading ? "Loading..." : "Register"}
             </button>
             <p
               className="text-blue-600 cursor-pointer hover:underline"
@@ -257,24 +275,6 @@ function Register({ switchForm, ThemeStyles }) {
           </div>
         </form>
       </div>
-    </div>
-  );
-}
-
-function Form() {
-  const [isLoginForm, setIsLoginForm] = useState(true);
-
-  const switchForm = () => {
-    setIsLoginForm((prev) => !prev);
-  };
-
-  return (
-    <div>
-      {isLoginForm ? (
-        <Login switchForm={switchForm} />
-      ) : (
-        <Register switchForm={switchForm} />
-      )}
     </div>
   );
 }
