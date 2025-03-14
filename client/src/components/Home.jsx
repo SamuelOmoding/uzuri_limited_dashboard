@@ -32,4 +32,7 @@ const Home = ({ ThemeStyles }) => {
   );
 };
 
+
+// import { Suspense, lazy } from "react";
+
 export default Home;
