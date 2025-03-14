@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 
 function TopNav({ toggleColor, darkTheme }) {
 
-  const ThemeStyles = {
-    backgroundColor: darkTheme ? "#282A36" : "#D3D3D3",
-    color: darkTheme ? "#FFFFFF" : "#000000"
-  };
+const ThemeStyles = {
+  backgroundColor: darkTheme ? "#282A36" : "#D3D3D3",
+  color: darkTheme ? "#FFFFFF" : "#000000"
+};
 
-  const MenuStyles = {
-    backgroundColor: darkTheme ? "#282A36" : "#D3D3D3"
-  };
+const MenuStyles = {
+  backgroundColor: darkTheme ? "#282A36" : "#D3D3D3"
+};
 
   return (
     <Box className="flex justify-between p-2" style={ThemeStyles}>
@@ -34,5 +34,3 @@ function TopNav({ toggleColor, darkTheme }) {
 }
 
 export default TopNav;
-
-
