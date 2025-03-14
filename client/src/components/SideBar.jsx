@@ -3,10 +3,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useState } from "react";
-import { Box, IconButton, Avatar } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from '../UserContext';
-import AvatarImage from '../assets/Avatar.jpeg'; 
 
 const Item = ({ title, to, icon }) => {
   return (
@@ -59,11 +58,6 @@ function SideBar({ toggleColor, darkTheme }) {
             </MenuItem>
             {!isCollapsed && (
               <Box className="mt-3 text-center">
-                <Avatar
-                  alt={user ? user.name : "Admin"}
-                  src={user?.avatar || AvatarImage} 
-                  sx={{ width: 56, height: 56, margin: "0 auto" }}
-                />
                 {user ? (
                   <>
                     <h1 className={`text-2xl font-bold ${darkTheme ? 'text-white' : 'text-black'}`}>
