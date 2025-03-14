@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 import { Box } from "@mui/material";
 import Bg from "../assets/water.png";
-import { UseTheme } from "./ThemeProvider";
+import { UseTheme } from "../Theme";
 
 const Authentication = lazy(() => import("./Authentication"));
 

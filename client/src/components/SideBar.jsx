@@ -4,7 +4,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { useState } from "react";
 import { Box, IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
-import { UseTheme } from './ThemeProvider';
+import { UseTheme } from '../Theme';
 
 const Item = ({ title, to, icon }) => {
   const { themeStyles } = UseTheme();

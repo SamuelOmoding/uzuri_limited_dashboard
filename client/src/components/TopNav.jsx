@@ -3,7 +3,7 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import { Link } from 'react-router-dom';
-import { UseTheme, UpdateTheme } from './ThemeProvider';
+import { UseTheme, UpdateTheme } from '../Theme';
 
 function TopNav() {
   const { darkTheme, themeStyles } = UseTheme();
