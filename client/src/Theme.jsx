@@ -1,10 +1,8 @@
 import React, { useContext, useState } from 'react';
 
-// Create contexts for theme and update function
 const ThemeContext = React.createContext();
 const UpdateThemeContext = React.createContext();
 
-// Custom hooks to access theme and update function
 export function UseTheme() {
   return useContext(ThemeContext);
 }
@@ -13,34 +11,29 @@ export function UpdateTheme() {
   return useContext(UpdateThemeContext);
 }
 
-// ThemeProvider component
 function ThemeProvider({ children }) {
-  const [darkTheme, setDarkTheme] = useState(true); // Default to dark theme
-
-  // Function to toggle between dark and light themes
+  const [darkTheme, setDarkTheme] = useState(true); 
   const toggleColor = () => {
     setDarkTheme((prevTheme) => !prevTheme);
   };
 
-  // Define theme-specific styles
   const themeStyles = {
     dark: {
-      backgroundColor: "#1E1E2E", // Dark blue-gray
-      color: "#FFFFFF", // White
-      accentColor: "#BB86FC", // Light purple for highlights
-      sidebarBackground: "#1E1E2E", // Dark blue-gray
-      sidebarText: "#A6ADC8", // Light blue-gray for secondary text
+      backgroundColor: "#1E1E2E", 
+      color: "#FFFFFF", 
+      accentColor: "#BB86FC",
+      sidebarBackground: "#1E1E2E", 
+      sidebarText: "#A6ADC8", 
     },
     light: {
-      backgroundColor: "#F5F5F5", // Off-white
-      color: "#000000", // Black
-      accentColor: "#6200EE", // Deep purple for highlights
-      sidebarBackground: "#F5F5F5", // Off-white
-      sidebarText: "#4A4A4A", // Dark gray for secondary text
+      backgroundColor: "#F5F5F5", 
+      color: "#000000", 
+      accentColor: "#6200EE", 
+      sidebarBackground: "#F5F5F5", 
+      sidebarText: "#4A4A4A", 
     },
   };
 
-  // Current theme styles based on darkTheme state
   const currentTheme = darkTheme ? themeStyles.dark : themeStyles.light;
 
   return (

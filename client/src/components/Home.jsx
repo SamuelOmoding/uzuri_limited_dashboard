@@ -1,27 +1,31 @@
 import { Suspense, lazy } from "react";
 import { Box } from "@mui/material";
 import Bg from "../assets/water.png";
+import { UseTheme } from "./ThemeProvider";
 
 const Authentication = lazy(() => import("./Authentication"));
 
-const Home = ({ ThemeStyles }) => {
+const Home = () => {
+  const { themeStyles } = UseTheme();
+
   return (
     <div
       className="pb-40 px-5 py-7 w-full h-screen overflow-y-auto"
       style={{
-        ...ThemeStyles,
+        backgroundColor: themeStyles.backgroundColor,
+        color: themeStyles.color,
         backgroundImage: `url(${Bg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      <Box className="justify-between flex" style={ThemeStyles}>
+      <Box className="justify-between flex flex-col md:flex-row">
         <div>
-          <h1 className="text-gray-900 text-3xl font-bold mb-2">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: themeStyles.color }}>
             UZURI LIMITED
           </h1>
-          <h2 className="text-2xl font-semibold">
-            <span className="text-gray-900">KARIBU !</span>
+          <h2 className="text-xl md:text-2xl font-semibold" style={{ color: themeStyles.color }}>
+            <span>KARIBU !</span>
           </h2>
         </div>
       </Box>
@@ -31,6 +35,5 @@ const Home = ({ ThemeStyles }) => {
     </div>
   );
 };
-
 
 export default Home;
