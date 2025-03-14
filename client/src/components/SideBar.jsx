@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Box, IconButton, Avatar } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from '../UserContext';
+import AvatarImage from '../assets/Avatar.jpeg'; 
 
 const Item = ({ title, to, icon }) => {
   return (
@@ -60,7 +61,7 @@ function SideBar({ toggleColor, darkTheme }) {
               <Box className="mt-3 text-center">
                 <Avatar
                   alt={user ? user.name : "Admin"}
-                  src={user?.avatar || "/path/to/default-avatar.png"} // Fallback for missing avatar
+                  src={user?.avatar || AvatarImage} 
                   sx={{ width: 56, height: 56, margin: "0 auto" }}
                 />
                 {user ? (
