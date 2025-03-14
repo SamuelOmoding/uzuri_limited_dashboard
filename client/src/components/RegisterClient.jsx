@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import * as Yup from "yup";
+import * as Yup from "yup"; // Ensure yup is installed
 import { useFormik } from "formik";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -50,7 +50,7 @@ const RegisterClient = ({ ThemeStyles }) => {
           setSuccessMessage("Client registered successfully!");
           setTimeout(() => {
             window.location.reload();
-          },1000);
+          }, 1000);
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -61,7 +61,7 @@ const RegisterClient = ({ ThemeStyles }) => {
 
   const background = {
     ...ThemeStyles,
-    backgroundColor: '#FFFAFA',
+    backgroundColor: "#FFFAFA",
   };
 
   return (
