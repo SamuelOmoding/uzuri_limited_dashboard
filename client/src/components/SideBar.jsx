@@ -22,25 +22,16 @@ function SideBar({ toggleColor, darkTheme }) {
   const { user } = useUser();
   const navigate = useNavigate();
 
-//   const ThemeStyles = {
-//     backgroundColor: darkTheme ? "#282A36" : "#E0E0E0",
-//     color: darkTheme ? "#FFFFFF" : "#000000"
-// };
 
 const ThemeStyles = {
-  backgroundColor: darkTheme ? "#282A36" : "#D3D3D3",
-  color: darkTheme ? "#FFFFFF" : "#000000"
+  backgroundColor: darkTheme ? "#1E1E2E" : "#F5F5F5",
+  color: darkTheme ? "#FFFFFF" : "#000000",
+  accentColor: darkTheme ? "#BB86FC" : "#6200EE",
 };
-
-  
-//   const MenuStyles = {
-//     backgroundColor: darkTheme ? "#282A36" : "#E0E0E0"
-// };
 
 const MenuStyles = {
-    backgroundColor: darkTheme ? "#282A36" : "#D3D3D3"
+  backgroundColor: darkTheme ? "#1E1E2E" : "#F5F5F5",
 };
-
  
 
   const handleLogout = () => {
