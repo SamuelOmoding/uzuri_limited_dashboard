@@ -3,15 +3,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useState } from "react";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Avatar } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from '../UserContext';
 
 const Item = ({ title, to, icon }) => {
   return (
     <Link to={to}>
-      <MenuItem className="text-black hover:text-gray-600" icon={icon}>
-        <h4 className="text-xl text-gray-400 hover:text-gray-600">{title}</h4>
+      <MenuItem className="hover:text-gray-600" icon={icon}>
+        <h4 className="text-xl">{title}</h4>
       </MenuItem>
     </Link>
   );
@@ -22,27 +22,12 @@ function SideBar({ toggleColor, darkTheme }) {
   const { user } = useUser();
   const navigate = useNavigate();
 
-//   const ThemeStyles = {
-//     backgroundColor: darkTheme ? "#282A36" : "#E0E0E0",
-//     color: darkTheme ? "#FFFFFF" : "#000000"
-// };
 
 const ThemeStyles = {
-  backgroundColor: darkTheme ? "#282A36" : "#D3D3D3",
-  color: darkTheme ? "#FFFFFF" : "#000000"
+  backgroundColor: darkTheme ? "#1E1E1E" : "#F5F5F5",
+  color: darkTheme ? "#FFFFFF" : "#000000",
 };
-
-  
-//   const MenuStyles = {
-//     backgroundColor: darkTheme ? "#282A36" : "#E0E0E0"
-// };
-
-const MenuStyles = {
-    backgroundColor: darkTheme ? "#282A36" : "#D3D3D3"
-};
-
  
-
   const handleLogout = () => {
     navigate("/home");
   };
@@ -51,19 +36,19 @@ const MenuStyles = {
     <div className="flex-col w-fit h-screen" style={ThemeStyles}>
       <Box className="flex-col" style={ThemeStyles}>
         <Sidebar collapsed={isCollapsed} style={ThemeStyles}>
-          <Menu style={MenuStyles}>
+          <Menu style={ThemeStyles}>
             <Box>
               <MenuItem
-                className="py-2 text-slate-700 justify-between hover:text-gray-600"
+                className="py-2 justify-between hover:text-gray-600"
                 onClick={() => setCollapsed(!isCollapsed)}
                 icon={isCollapsed ? <MenuIcon /> : undefined}
                 style={{ margin: "10px 0", cursor: "pointer" }}
               >
                 {!isCollapsed && (
                   <Box className="flex justify-between p-3">
-                    <h1 className={`text-2xl font-bold ${darkTheme ? 'text-gray-400' : 'text-gray-900'}`}>UZURI LIMITED</h1>
+                    <h1 className={`text-2xl font-bold ${darkTheme ? 'text-white' : 'text-black'}`}>UZURI LIMITED</h1>
                     <IconButton
-                      className="text-slate-400 hover:text-gray-600"
+                      className="hover:text-gray-600"
                       onClick={() => setCollapsed(!isCollapsed)}
                     >
                       <MenuIcon />
@@ -75,6 +60,12 @@ const MenuStyles = {
             {!isCollapsed && (
               <Box>
                 <Box className="mt-3 text-center">
+                  <Avatar
+                    // className="rounded-full h-10 w-10"
+                    alt={user ? user.name : "Admin"}
+                    src={user.avatar}
+                    sx={{ width: 56, height: 56, margin: "0 auto" }}
+                  />
                   {user ? (
                     <>
                       <h1 className={`text-2xl font-bold ${darkTheme ? 'text-white' : 'text-black'}`}>
@@ -93,21 +84,21 @@ const MenuStyles = {
               </Box>
             )}
           </Menu>
-          <Menu className="mt-4" style={MenuStyles}>
-            <Box className="text-gray-300">
-              <Item icon={<HomeIcon />} title="Home" to="/Home" />
-            </Box>
+          <Menu className="mt-4" style={ThemeStyles}>
+          <Item icon={<HomeIcon />} title="Home" to="/Home" />
           </Menu>
-          {/* <Menu className="mt-auto" style={MenuStyles}>
+          <Menu className="mt-auto" style={ThemeStyles}>
             <Box className="flex items-center justify-center py-3">
-              <IconButton onClick={handleLogout} className="text-black hover:text-gray-600">
+              <IconButton onClick={handleLogout} className="hover:text-gray-600">
                 <ExitToAppIcon className="text-2xl" />
                 {!isCollapsed && (
-                  <span className={`ml-2 ${darkTheme ? 'text-gray-400 font-bold' : 'text-black'}`}>Logout</span>
+                  <span className={`ml-2 ${darkTheme ? 'text-gray-400 font-bold' : 'text-black'}`}>
+                    Logout
+                  </span>
                 )}
               </IconButton>
             </Box>
-          </Menu> */}
+          </Menu>
         </Sidebar>
       </Box>
     </div>
