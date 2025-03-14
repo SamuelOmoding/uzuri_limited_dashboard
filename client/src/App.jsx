@@ -1,4 +1,3 @@
-import React from 'react';
 import { useLocation } from "react-router-dom";
 import { UpdateTheme, UseTheme } from "./Theme";
 import SideBar from "./components/SideBar";
@@ -37,7 +36,6 @@ function App() {
       <main className="content">
         <TopNav toggleColor={toggleColor} darkTheme={darkTheme} />
 
-        {/* Conditionally render the welcome message */}
         {location.pathname === "/" && (
           <div className="flex items-center justify-center min-h-screen">
             <h1
@@ -48,7 +46,6 @@ function App() {
           </div>
         )}
 
-        {/* Routes */}
         <Routes>
           <Route path="/Profile" element={<Authentication ThemeStyles={ThemeStyles} />} />
           <Route path="/Dashboard" element={<Dashboard ThemeStyles={ThemeStyles} />} />
@@ -60,7 +57,6 @@ function App() {
           <Route path="/ClientList" element={<ClientList ThemeStyles={ThemeStyles} />} />
           <Route path="/ServicesList" element={<ServicesList ThemeStyles={ThemeStyles} />} />
         </Routes>
-        {/* <ServicesList style={ThemeStyles} /> */}
       </main>
     </div>
   );

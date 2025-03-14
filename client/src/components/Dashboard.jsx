@@ -1,4 +1,3 @@
-import React from "react";
 import DonutLargeIcon from "@mui/icons-material/DonutLarge";
 import { Box } from "@mui/material";
 import Survey from "../assets/survey.png";
