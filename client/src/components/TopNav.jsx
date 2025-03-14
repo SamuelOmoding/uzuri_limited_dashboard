@@ -7,13 +7,12 @@ import { Link } from 'react-router-dom';
 function TopNav({ toggleColor, darkTheme }) {
 
   const ThemeStyles = {
-    backgroundColor: darkTheme ? "#1E1E2E" : "#F5F5F5",
-    color: darkTheme ? "#FFFFFF" : "#000000",
-    accentColor: darkTheme ? "#BB86FC" : "#6200EE",
+    backgroundColor: darkTheme ? "#282A36" : "#D3D3D3",
+    color: darkTheme ? "#FFFFFF" : "#000000"
   };
-  
+
   const MenuStyles = {
-    backgroundColor: darkTheme ? "#1E1E2E" : "#F5F5F5",
+    backgroundColor: darkTheme ? "#282A36" : "#D3D3D3"
   };
 
   return (
