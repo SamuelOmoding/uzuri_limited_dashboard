@@ -1,9 +1,10 @@
-import react, { useEffect, useState, useMemo } from "react";
+import React from "react"; // Add this line
+import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { debounce } from "lodash";
 
-const ClientList = React.memo (({ ThemeStyles }) => {
+const ClientList = React.memo(({ ThemeStyles }) => {
   const navigate = useNavigate();
   const [clients, setClients] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -120,7 +121,6 @@ const ClientList = React.memo (({ ThemeStyles }) => {
 });
 
 export default ClientList;
-
 
 // import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
