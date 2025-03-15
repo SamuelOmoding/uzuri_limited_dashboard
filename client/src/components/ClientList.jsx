@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import react, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { debounce } from "lodash";
