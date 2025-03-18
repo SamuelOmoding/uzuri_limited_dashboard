@@ -12,7 +12,8 @@ export function UpdateTheme() {
 }
 
 function ThemeProvider({ children }) {
-  const [darkTheme, setDarkTheme] = useState(true); 
+  const [darkTheme, setDarkTheme] = useState(true);
+
   const toggleColor = () => {
     setDarkTheme((prevTheme) => !prevTheme);
   };
@@ -21,16 +22,20 @@ function ThemeProvider({ children }) {
     dark: {
       backgroundColor: "#1E1E2E", 
       color: "#FFFFFF", 
-      accentColor: "#BB86FC",
+      accentColor: "#FF6F61", 
       sidebarBackground: "#1E1E2E", 
       sidebarText: "#A6ADC8", 
+      buttonBackground: "#FF6F61", 
+      buttonText: "#FFFFFF", 
     },
     light: {
-      backgroundColor: "#F5F5F5", 
-      color: "#000000", 
-      accentColor: "#6200EE", 
-      sidebarBackground: "#F5F5F5", 
+      backgroundColor: "#F9F9F9", 
+      color: "#333333", 
+      accentColor: "#4A90E2", 
+      sidebarBackground: "#FFFFFF",
       sidebarText: "#4A4A4A", 
+      buttonBackground: "#4A90E2", 
+      buttonText: "#FFFFFF", 
     },
   };
 
@@ -49,33 +54,3 @@ export default ThemeProvider;
 
 
 
-// import React, { useContext, useState } from 'react'
-
-// const ThemeContext=React.createContext()               
-// const UpdateThemeContext=React.createContext()
-
-// export function UseTheme(){              
-//     return useContext(ThemeContext)
-// }
-// export function UpdateTheme(){             
-//     return useContext(UpdateThemeContext)
-// }
-// //function theme
-// function ThemeProvider({children}) {
-//     const [darkTheme, setDarkTheme]=useState(true)  //set state for the theme
-
-//     const toggleColor=()=>{       
-//         setDarkTheme(prevTheme=>!prevTheme)
-//     }
-//   return (
-//     <div>
-//       <ThemeContext.Provider value={darkTheme}>
-//         <UpdateThemeContext.Provider value={toggleColor}>      
-//             {children}
-//         </UpdateThemeContext.Provider>
-//       </ThemeContext.Provider>
-//     </div>
-//   )
-// }
-
-// export default ThemeProvider

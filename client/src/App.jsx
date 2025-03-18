@@ -15,23 +15,26 @@ import ServicesList from "./components/ServicesList";
 import Bg from "../src/assets/water.png";
 
 function App() {
-  const darkTheme = UseTheme();
-  const toggleColor = UpdateTheme();
+  const { darkTheme, themeStyles } = UseTheme(); 
+  const toggleColor = UpdateTheme(); 
   const location = useLocation();
 
-  const ThemeStyles = {
+  // Combined styles for the app container
+  const appStyles = {
     backgroundImage: `url(${Bg})`,
-    backgroundColor: darkTheme ? "rgb(46, 45, 45)" : "rgb(171, 163, 159)",
-    color: darkTheme ? "rgb(240, 240, 240)" : "rgb(26, 46, 5)",
+    backgroundColor: darkTheme ? "rgba(46, 45, 45, 0.9)" : "rgba(171, 163, 159, 0.9)", 
+    color: themeStyles.color, 
     backgroundSize: "cover",
+    backgroundBlendMode: darkTheme ? "overlay" : "lighten", 
+    minHeight: "100vh",
   };
 
   const headerGradient = darkTheme
-    ? "bg-gradient-to-r from-blue-900 to-gray-500"
-    : "bg-gradient-to-r from-gray-500 to-gray-900";
+    ? "bg-gradient-to-r from-blue-900 to-gray-700"
+    : "bg-gradient-to-r from-gray-500 to-gray-800";
 
   return (
-    <div className="app overflow-hidden" style={ThemeStyles}>
+    <div className="app overflow-hidden" style={appStyles}>
       <SideBar toggleColor={toggleColor} darkTheme={darkTheme} />
       <main className="content">
         <TopNav toggleColor={toggleColor} darkTheme={darkTheme} />
@@ -47,15 +50,15 @@ function App() {
         )}
 
         <Routes>
-          <Route path="/Profile" element={<Authentication ThemeStyles={ThemeStyles} />} />
-          <Route path="/Dashboard" element={<Dashboard ThemeStyles={ThemeStyles} />} />
-          <Route path="/RegisterClient" element={<RegisterClient ThemeStyles={ThemeStyles} />} />
-          <Route path="/FeeCalculator" element={<FeeCalculator ThemeStyles={ThemeStyles} />} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/Invoice" element={<Invoice ThemeStyles={ThemeStyles} />} />
-          <Route path="/Reports" element={<Reports />} />
-          <Route path="/ClientList" element={<ClientList ThemeStyles={ThemeStyles} />} />
-          <Route path="/ServicesList" element={<ServicesList ThemeStyles={ThemeStyles} />} />
+          <Route path="/Profile" element={<Authentication themeStyles={themeStyles} />} />
+          <Route path="/Dashboard" element={<Dashboard themeStyles={themeStyles} />} />
+          <Route path="/RegisterClient" element={<RegisterClient themeStyles={themeStyles} />} />
+          <Route path="/FeeCalculator" element={<FeeCalculator themeStyles={themeStyles} />} />
+          <Route path="/Home" element={<Home themeStyles={themeStyles} />} />
+          <Route path="/Invoice" element={<Invoice themeStyles={themeStyles} />} />
+          <Route path="/Reports" element={<Reports themeStyles={themeStyles} />} />
+          <Route path="/ClientList" element={<ClientList themeStyles={themeStyles} />} />
+          <Route path="/ServicesList" element={<ServicesList themeStyles={themeStyles} />} />
         </Routes>
       </main>
     </div>
