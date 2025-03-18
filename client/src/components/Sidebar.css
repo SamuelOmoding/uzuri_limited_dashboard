@@ -1,0 +1,63 @@
+/* Sidebar.css */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transition: width 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 20px;
+    white-space: nowrap;
+  }
+  
+  .sidebar nav {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .sidebar a:hover {
+    background-color: var(--accent-color);
+    color: var(--button-text);
+  }
+  
+  .sidebar .toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--sidebar-text);
+    padding: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 60px;
+    }
+  
+    .sidebar h2 {
+      display: none;
+    }
+  
+    .sidebar a {
+      justify-content: center;
+    }
+  }
