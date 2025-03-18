@@ -20,22 +20,22 @@ function ThemeProvider({ children }) {
 
   const themeStyles = {
     dark: {
-      backgroundColor: "#1E1E2E", 
-      color: "#FFFFFF", 
-      accentColor: "#FF6F61", 
-      sidebarBackground: "#1E1E2E", 
-      sidebarText: "#A6ADC8", 
-      buttonBackground: "#FF6F61", 
-      buttonText: "#FFFFFF", 
+      backgroundColor: "#1E1E2E",
+      color: "#FFFFFF",
+      accentColor: "#BB86FC",
+      sidebarBackground: "#1E1E2E",
+      sidebarText: "#A6ADC8",
+      buttonBackground: "#BB86FC",
+      buttonText: "#FFFFFF",
     },
     light: {
-      backgroundColor: "#F9F9F9", 
-      color: "#333333", 
-      accentColor: "#4A90E2", 
-      sidebarBackground: "#FFFFFF",
-      sidebarText: "#4A4A4A", 
-      buttonBackground: "#4A90E2", 
-      buttonText: "#FFFFFF", 
+      backgroundColor: "#F5F5F5",
+      color: "#000000",
+      accentColor: "#6200EE",
+      sidebarBackground: "#F5F5F5",
+      sidebarText: "#4A4A4A",
+      buttonBackground: "#6200EE",
+      buttonText: "#FFFFFF",
     },
   };
 
