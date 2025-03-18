@@ -22,7 +22,7 @@ function App() {
   // Combined styles for the app container
   const appStyles = {
     backgroundImage: `url(${Bg})`,
-    backgroundColor: darkTheme ? "rgba(46, 45, 45, 0.9)" : "rgba(171, 163, 159, 0.9)", 
+    // backgroundColor: darkTheme ? "rgba(46, 45, 45, 0.9)" : "rgba(171, 163, 159, 0.9)", 
     color: themeStyles.color, 
     backgroundSize: "cover",
     backgroundBlendMode: darkTheme ? "overlay" : "lighten", 
@@ -64,7 +64,7 @@ function App() {
     </div>
   );
 }
-// here
+
 export default App;
 
 
